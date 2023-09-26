@@ -53,7 +53,7 @@ public class NotesDbContext extends DbContext implements NotesDatabaseContext {
                         newRecord.getCreationDate());
     }
 
-    public NotesDbContext(Database<NotesRecord, Integer> database) {
+    public NotesDbContext(NoteDatabase database) {
         super(database);
     }
 

@@ -4,9 +4,9 @@ import ru.geekbrains.lesson6.database.NotesRecord;
 
 public abstract class DbContext {
 
-    protected Database<NotesRecord, Integer> database;
+    protected NoteDatabase database;
 
-    public DbContext(Database<NotesRecord, Integer> database) {
+    public DbContext(NoteDatabase database) {
         this.database = database;
     }
 
