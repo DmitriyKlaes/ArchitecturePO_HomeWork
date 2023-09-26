@@ -10,7 +10,7 @@ public class NoteMaker {
     public Note getNewNote() {
         Random rnd = new Random();
         int randomNumber = 15 + rnd.nextInt(1000);
-        return new Note(randomNumber, "NEW NOTE #" + randomNumber, "NEW DETAILS#" + randomNumber, new Date());
+        return new Note(randomNumber, randomNumber, "NEW NOTE #" + randomNumber, "NEW DETAILS#" + randomNumber, new Date());
     }
 
 }

@@ -19,6 +19,7 @@ public class NotesDbContext extends DbContext implements NotesDatabaseContext {
         //TODO: Этого кастинга быть не должно, тут должен работать внутренний механизм фреймворка
         for (NotesRecord record : ((NotesDatabase)database).getNotesTable().getRecords()){
             notesList.add(new Note(
+                          record.getId(),
                           record.getUserId(),
                           record.getTitle(),
                           record.getDetails(),
@@ -30,7 +31,7 @@ public class NotesDbContext extends DbContext implements NotesDatabaseContext {
 
     @Override
     public void add(Note note) {
-        ((NotesDatabase) database).addNote(new NotesRecord(note.getTitle(), note.getDetails()));
+        ((NotesDatabase) database).addNote(new NotesRecord(note.getId(), note.getTitle(), note.getDetails()));
     }
 
     @Override
@@ -40,12 +41,13 @@ public class NotesDbContext extends DbContext implements NotesDatabaseContext {
 
     @Override
     public Note edit(Note note) {
-        NotesRecord notesRecord = ((NotesDatabase) database).findNote(note.getId());
+        NotesRecord notesRecord = database.findNote(note.getId());
         notesRecord.setTitle(note.getTitle());
         notesRecord.setDetails(note.getDetails());
         notesRecord.setEditDate(new Date());
         NotesRecord newRecord = ((NotesDatabase) database).editNote(notesRecord);
-        return new Note(newRecord.getUserId(),
+        return new Note(newRecord.getId(),
+                        newRecord.getUserId(),
                         newRecord.getTitle(),
                         newRecord.getDetails(),
                         newRecord.getCreationDate());

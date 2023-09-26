@@ -22,7 +22,7 @@ public class ConcreteNoteEditor implements NoteEditor {
 
     @Override
     public boolean add(Note item) {
-        dbContext.getAll().add(item);
+        dbContext.add(item);
         return dbContext.saveChanges();
     }
 
@@ -42,7 +42,7 @@ public class ConcreteNoteEditor implements NoteEditor {
 
     @Override
     public boolean remove(Note item) {
-        dbContext.getAll().remove(item);
+        dbContext.remove(item);
         return dbContext.saveChanges();
     }
 

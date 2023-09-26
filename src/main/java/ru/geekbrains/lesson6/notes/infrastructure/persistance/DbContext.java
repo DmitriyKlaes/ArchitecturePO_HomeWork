@@ -1,10 +1,12 @@
 package ru.geekbrains.lesson6.notes.infrastructure.persistance;
 
+import ru.geekbrains.lesson6.database.NotesRecord;
+
 public abstract class DbContext {
 
-    protected Database database;
+    protected Database<NotesRecord, Integer> database;
 
-    public DbContext(Database database) {
+    public DbContext(Database<NotesRecord, Integer> database) {
         this.database = database;
     }
 

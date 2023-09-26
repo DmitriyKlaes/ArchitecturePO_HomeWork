@@ -1,7 +1,5 @@
 package ru.geekbrains.lesson6.notes.core.domain;
 
-import ru.geekbrains.lesson6.database.NotesRecord;
-
 import java.util.Date;
 
 public class Note {
@@ -17,8 +15,8 @@ public class Note {
 
     //region Constructors
 
-    public Note(int userId, String title, String details, Date creationDate) {
-        this.id = NotesRecord.getNextId();
+    public Note(int id, int userId, String title, String details, Date creationDate) {
+        this.id = id;
         this.userId = userId;
         this.title = title;
         this.details = details;

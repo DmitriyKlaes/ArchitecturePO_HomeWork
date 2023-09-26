@@ -16,7 +16,7 @@ public class NotesTable {
             records = new ArrayList<>();
             int recordsCount =  5  + random.nextInt(10);
             for (int i = 0; i < recordsCount; i++){
-                records.add(new NotesRecord("title #" + i, "details #" + i));
+                records.add(new NotesRecord(i, "title #" + i, "details #" + i));
             }
         }
         return records;

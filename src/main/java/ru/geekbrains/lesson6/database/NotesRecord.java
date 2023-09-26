@@ -4,20 +4,11 @@ import java.util.Date;
 
 public class NotesRecord {
 
-    private static int counter = 1000;
-
-    {
-        id = ++counter;
-    }
-
-    public NotesRecord(String title, String details) {
+    public NotesRecord(int id, String title, String details) {
+        this.id = id;
         this.title = title;
         this.details = details;
         creationDate = new Date();
-    }
-
-    public static int getNextId() {
-        return ++counter;
     }
 
     public void setTitle(String title) {
